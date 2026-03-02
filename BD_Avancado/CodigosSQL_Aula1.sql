@@ -3,7 +3,7 @@
 CREATE TABLE laboratorio (
 cd_laboratorio INT AUTO_INCREMENT PRIMARY KEY,
 nm_laboratorio VARCHAR(50) NOT NULL,
-ds_website		VARCHAR(50)
+ds_website	   VARCHAR(50)
 );
 
 CREATE TABLE medicamento (
@@ -144,3 +144,4 @@ SELECT * FROM medicamento_similar;
 SELECT m.nm_medicamento, s.nm_medicamento
 FROM medicamento m JOIN medicamento_similar ms ON (m.cd_medicamento = ms.cd_medicamento)
 				   JOIN medicamento s ON (s.cd_medicamento = ms.cd_medicamento_similar);
+
