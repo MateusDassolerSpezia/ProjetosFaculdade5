@@ -38,6 +38,16 @@ ORDER BY qtde DESC;
 
 -- e) Listar qual o número de total de CEPs encontrados em cada município, com respectiva UF, ordenados pelo maior número (de CEPs listados). Considerar apenas os municípios que possuem mais de um CEP (tabela logradouro);
 EXPLAIN 
-
+SELECT COUNT(*) AS ceps, lo.nm_localidade, lo.sg_uf
+FROM logradouro lg, localidade lo
+WHERE lg.cd_localidade = lo.cd_localidade
+GROUP BY lo.nm_localidade
+ORDER BY ceps DESC; 
 
 -- f) Listar qual o nome do logradouro mais popular no Brasil, ou seja, o que é encontrado no maior número de municípios. Atenção, aqui poderá haver mais de um logradouro, haja vista que podem apresentar o mesmo número de ocorrências e, neste caso, todos os empatados na 1a. posição (maior número) devem ser exibidos;
+EXPLAIN
+SELECT COUNT(*) AS qtde, lg.nm_logradouro_comp
+FROM logradouro lg, localidade lo
+WHERE lg.cd_logradouro = lo.cd_localidade
+GROUP BY lg.nm_logradouro
+ORDER BY qtde DESC;
