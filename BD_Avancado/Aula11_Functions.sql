@@ -1,11 +1,12 @@
 DELIMITER $
-CREATE  OR REPLACE FUNCTION fc_tempo_servico (p_data DATE) RETURNS integer
+CREATE  OR REPLACE FUNCTION fc_tempo_servico (p_data DATE) RETURNS INTEGER
 BEGIN
    DECLARE data_atual DATE;
    SET data_atual = (select CURDATE());
    RETURN YEAR(data_atual) - YEAR(p_data);
 END $
 
+-- testando function criada
 SELECT fc_tempo_servico('1993-02-17');
 
 SELECT * FROM medicamento;
